@@ -19,6 +19,8 @@
     * [15. 二进制中 1 的个数](#15-二进制中-1-的个数)
 * [第三章 高质量的代码](#第三章-高质量的代码)
     * [16. 数值的整数次方](#16-数值的整数次方)
+    * [17. 打印从 1 到最大的 n 位数](#17-打印从-1-到最大的-n-位数)
+    * [18.1 在 O(1) 时间内删除链表节点](#181-在-o1-时间内删除链表节点)
     * [18.2 删除链表中重复的结点](#182-删除链表中重复的结点)
     * [19. 正则表达式匹配](#19-正则表达式匹配)
     * [20. 表示数值的字符串](#20-表示数值的字符串)
@@ -48,10 +50,14 @@
     * [39. 数组中出现次数超过一半的数字](#39-数组中出现次数超过一半的数字)
     * [40. 最小的 K 个数](#40-最小的-k-个数)
     * [41.1 数据流中的中位数](#411-数据流中的中位数)
-    * [14.2 字符流中第一个不重复的字符](#142-字符流中第一个不重复的字符)
+    * [41.2 字符流中第一个不重复的字符](#412-字符流中第一个不重复的字符)
     * [42. 连续子数组的最大和](#42-连续子数组的最大和)
     * [43. 从 1 到 n 整数中 1 出现的次数](#43-从-1-到-n-整数中-1-出现的次数)
+    * [44. 数字序列中的某一位数字](#44-数字序列中的某一位数字)
     * [45. 把数组排成最小的数](#45-把数组排成最小的数)
+    * [46. 把数字翻译成字符串](#46-把数字翻译成字符串)
+    * [47. 礼物的最大价值](#47-礼物的最大价值)
+    * [48. 最长不含重复字符的子字符串](#48-最长不含重复字符的子字符串)
     * [49. 丑数](#49-丑数)
     * [50. 第一个只出现一次的字符位置](#50-第一个只出现一次的字符位置)
     * [51. 数组中的逆序对](#51-数组中的逆序对)
@@ -66,6 +72,7 @@
     * [58.1 翻转单词顺序列](#581-翻转单词顺序列)
     * [58.2 左旋转字符串](#582-左旋转字符串)
     * [59. 滑动窗口的最大值](#59-滑动窗口的最大值)
+    * [60. n 个骰子的点数](#60-n-个骰子的点数)
     * [61. 扑克牌顺子](#61-扑克牌顺子)
     * [62. 圆圈中最后剩下的数](#62-圆圈中最后剩下的数)
     * [63. 股票的最大利润](#63-股票的最大利润)
@@ -82,7 +89,7 @@
 
 ## 2. 实现 Singleton
 
-[单例模式](https://github.com/CyC2018/InterviewNotes/blob/master/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md#%E7%AC%AC-5-%E7%AB%A0-%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F)
+[ 单例模式 ](https://github.com/CyC2018/InterviewNotes/blob/master/notes/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md#%E7%AC%AC-5-%E7%AB%A0-%E5%8D%95%E4%BB%B6%E6%A8%A1%E5%BC%8F)
 
 ## 3. 数组中重复的数字
 
@@ -472,7 +479,7 @@ private boolean backtracking(char[][] matrix, char[] str, boolean[][] used, int 
 
 **题目描述**
 
-地上有一个 m 行和 n 列的方格。一个机器人从坐标 (0,0) 的格子开始移动，每一次只能向左右上下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于 k 的格子。例如，当 k 为 18 时，机器人能够进入方格（35,37），因为 3+5+3+7=18。但是，它不能进入方格（35,38），因为 3+5+3+8=19。请问该机器人能够达到多少个格子？
+地上有一个 m 行和 n 列的方格。一个机器人从坐标 (0, 0) 的格子开始移动，每一次只能向左右上下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于 k 的格子。例如，当 k 为 18 时，机器人能够进入方格（35, 37），因为 3+5+3+7=18。但是，它不能进入方格（35, 38），因为 3+5+3+8=19。请问该机器人能够达到多少个格子？
 
 ```java
 private int cnt = 0;
@@ -522,7 +529,7 @@ private void initDigitSum(int rows, int cols) {
 
 **动态规划解法**
 
-[分割整数](https://github.com/CyC2018/InterviewNotes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3.md#%E5%88%86%E5%89%B2%E6%95%B4%E6%95%B0)
+[ 分割整数 ](https://github.com/CyC2018/InterviewNotes/blob/master/notes/Leetcode%20%E9%A2%98%E8%A7%A3.md#%E5%88%86%E5%89%B2%E6%95%B4%E6%95%B0)
 
 **贪心解法**
 
@@ -581,6 +588,55 @@ public double Power(double base, int exponent) {
     double pow = Power(base * base, exponent / 2);
     if (exponent % 2 != 0) pow = pow * base;
     return isNegative ? 1 / pow : pow;
+}
+```
+
+## 17. 打印从 1 到最大的 n 位数
+
+```java
+public void print1ToMaxOfNDigits(int n) {
+    if (n < 0) return;
+    char[] number = new char[n];
+    print1ToMaxOfNDigits(number, -1);
+}
+
+private void print1ToMaxOfNDigits(char[] number, int idx) {
+    if (idx == number.length - 1) {
+        printNumber(number);
+        return;
+    }
+    for (int i = 0; i < 10; i++) {
+        number[idx + 1] = (char) (i + '0');
+        print1ToMaxOfNDigits(number, idx + 1);
+    }
+}
+
+private void printNumber(char[] number) {
+    boolean isBeginWith0 = true;
+    for (char c : number) {
+        if (isBeginWith0 && c != '0') isBeginWith0 = false;
+        if(!isBeginWith0) System.out.print(c);
+    }
+    System.out.println();
+}
+```
+
+## 18.1 在 O(1) 时间内删除链表节点
+
+```java
+public ListNode deleteNode(ListNode head, ListNode tobeDelete) {
+    if (head == null || head.next == null || tobeDelete == null) return null;
+    if (tobeDelete.next != null) {
+        // 要删除的节点不是尾节点
+        ListNode next = tobeDelete.next;
+        tobeDelete.val = next.val;
+        tobeDelete.next = next.next;
+    } else {
+        ListNode cur = head;
+        while (cur.next != tobeDelete) cur = cur.next;
+        cur.next = null;
+    }
+    return head;
 }
 ```
 
@@ -1292,7 +1348,7 @@ public Double GetMedian() {
 }
 ```
 
-## 14.2 字符流中第一个不重复的字符
+## 41.2 字符流中第一个不重复的字符
 
 **题目描述**
 
@@ -1350,6 +1406,47 @@ public int NumberOf1Between1AndN_Solution(int n) {
 }
 ```
 
+## 44. 数字序列中的某一位数字
+
+**题目描述**
+
+数字以 0123456789101112131415... 的格式序列化到一个字符串中，求这个字符串的第 index 位。
+
+```java
+int digitAtIndex(int index) {
+    if (index < 0) return -1;
+    int digit = 1;
+    while (true) {
+        int amount = getAmountOfDigit(digit);
+        int totalAmount = amount * digit;
+        if (index < totalAmount) return digitAtIndex(index, digit);
+        index -= totalAmount;
+        digit++;
+    }
+}
+
+private int getAmountOfDigit(int digit) {
+    if (digit == 1) return 10;
+    return (int) Math.pow(10, digit - 1);
+}
+
+private int digitAtIndex(int index, int digits) {
+    int number = beginNumber(digits) + index / digits;
+    int remain = index % digits;
+    return (number + "").charAt(remain) - '0';
+}
+
+private int beginNumber(int digits) {
+    if (digits == 1) return 0;
+    return (int) Math.pow(10, digits - 1);
+}
+
+public static void main(String[] args) {
+    Solution solution = new Solution();
+    System.out.println(solution.digitAtIndex(1001));
+}
+```
+
 ## 45. 把数组排成最小的数
 
 **题目描述**
@@ -1365,6 +1462,89 @@ public String PrintMinNumber(int[] numbers) {
     String ret = "";
     for (String str : nums) ret += str;
     return ret;
+}
+```
+
+## 46. 把数字翻译成字符串
+
+**题目描述**
+
+给定一个数字，按照如下规则翻译成字符串：0 翻译成“a”，1 翻译成“b”...25 翻译成“z”。一个数字有多种翻译可能，例如 12258 一共有 5 种，分别是 bccfi，bwfi，bczi，mcfi，mzi。实现一个函数，用来计算一个数字有多少种不同的翻译方法。
+
+```java
+public int getTranslationCount(String number) {
+    int n = number.length();
+    int[] counts = new int[n + 1];
+    counts[n - 1] = counts[n] = 1;
+    for (int i = n - 2; i >= 0; i--) {
+        counts[i] = counts[i + 1];
+        int converted = Integer.valueOf(number.substring(i, i + 2));
+        if (converted >= 10 && converted <= 25) {
+            counts[i] += counts[i + 2];
+        }
+    }
+    return counts[0];
+}
+```
+
+## 47. 礼物的最大价值
+
+**题目描述**
+
+在一个 m * n 的棋盘的每一个格都放有一个礼物，每个礼物都有一定价值（大于 0）。从左上角开始拿礼物，每次向右或向下移动一格，直到右下角结束。给定一个棋盘，求拿到礼物的最大价值。例如，对于如下棋盘
+
+```
+1    10   3    8
+12   2    9    6
+5    7    4    11
+3    7    16   5
+```
+
+礼物的最大价值为 1+12+5+7+7+16+5=53。
+
+**解题思路**
+
+应该用动态规划求解，而不是深度优先搜索，深度优先搜索过于复杂，不是最优解。
+
+```java
+public int getMaxValue(int[][] values) {
+    if (values == null || values.length == 0 || values[0].length == 0) return 0;
+    int m = values.length;
+    int n = values[0].length;
+    int[] dp = new int[n];
+    for (int i = 0; i < m; i++) {
+        dp[0] += values[i][0];
+        for (int j = 1; j < n; j++) {
+            dp[j] = Math.max(dp[j], dp[j - 1]) + values[i][j];
+        }
+    }
+    return dp[n - 1];
+}
+```
+
+## 48. 最长不含重复字符的子字符串
+
+**题目描述**
+
+输入一个字符串（只包含 a\~z 的字符），求其最长不含重复字符的子字符串的长度。例如对于 arabcacfr，最长不含重复字符的子字符串为 acfr，长度为 4。
+
+```java
+public int longestSubStringWithoutDuplication(String str) {
+    int curLen = 0;
+    int maxLen = 0;
+    int[] position = new int[26];
+    for (int i = 0; i < str.length(); i++) {
+        int c = str.charAt(i) - 'a';
+        int preIndex = position[c];
+        if (preIndex == -1 || i - preIndex > curLen) curLen++;
+        else {
+            maxLen = Math.max(maxLen, curLen);
+            curLen = i - preIndex;
+        }
+        position[c] = i;
+    }
+    maxLen = Math.max(maxLen, curLen);
+    return maxLen;
 }
 ```
 
@@ -1668,6 +1848,65 @@ public ArrayList<Integer> maxInWindows(int[] num, int size) {
         ret.add(heap.peek());
     }
     return ret;
+}
+```
+
+## 60. n 个骰子的点数
+
+**题目描述**
+
+把 n 个骰子仍在地上，求点数和为 s 的概率。
+
+最直观的动态规划解法，O(n<sup>2</sup>) 的空间复杂度。
+
+```java
+private static int face = 6;
+
+public double countProbability(int n, int s) {
+    if (n < 1 || s < n) return 0.0;
+    int pointNum = face * n;
+    int[][] dp = new int[n][pointNum];
+    for (int i = 0; i < face; i++) {
+        dp[0][i] = 1;
+    }
+    for (int i = 1; i < n; i++) {
+        for (int j = i; j < pointNum; j++) { // 使用 i 个骰子最小点数为 i
+            for (int k = 1; k <= face; k++) {
+                if (j - k < 0) continue;
+                dp[i][j] += dp[i - 1][j - k];
+            }
+        }
+    }
+
+    int totalNum = (int) Math.pow(6, n);
+    return (double) dp[n - 1][s - 1] / totalNum;
+}
+```
+
+使用旋转数组将空间复杂度降低为 O(n)
+
+```java
+private static int face = 6;
+
+public double countProbability(int n, int s) {
+    if (n < 1 || s < n) return 0.0;
+    int pointNum = face * n;
+    int[][] dp = new int[2][pointNum];
+    for (int i = 0; i < face; i++) {
+        dp[0][i] = 1;
+    }
+    int flag = 1;
+    for (int i = 1; i < n; i++) {
+        for (int j = i; j < pointNum; j++) { // 使用 i 个骰子最小点数为 i
+            for (int k = 1; k <= face; k++) {
+                if (j - k < 0) continue;
+                dp[flag][j] += dp[1 - flag][j - k];
+            }
+        }
+    }
+
+    int totalNum = (int) Math.pow(6, n);
+    return (double) dp[n - 1][s - 1] / totalNum;
 }
 ```
 
